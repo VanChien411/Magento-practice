@@ -1,55 +1,88 @@
-app/code/
-├── Packt/
-    ├── HelloWorld/
-    │   ├── registration.php
-    │   ├── Block/
-    │   │   ├── Landingspage.php
-    │   │   └── Newproducts.php
-    │   ├── Console/
-    │   │   └── Command/
-    │   ├── Controller/
-    │   │   └── Index/
-    │   │       ├── Index.php
-    │   │       ├── Redirect.php
-    │   │       ├── Subscription.php
-    │   │       └── Collection.php
-    │   ├── etc/
-    │   │   ├── di.xml
-    │   │   ├── module.xml
-    │   │   └── frontend/
-    │   │       ├── routes.xml
-    │   │       └── page_type.xml
-    │   ├── i18n/
-    │   │   ├── en_US.csv
-    │   │   ├── fr_FR.csv
-    │   │   └── ja_JP.csv
-    │   ├── Model/
-    │   │   ├── Subscription.php
-    │   │   └── ResourceModel/
-    │   │       ├── Subscription.php
-    │   │       └── Collection.php
-    │   ├── Plugin/
-    │   │   └── Catalog/
-    │   │       └── ProductAround.php
-    │   ├── Setup/
-    │   │   ├── UpgradeSchema.php
-    │   │   └── InstallData.php
-    │   └── view/
-    │       └── frontend/
-    │           ├── layout/
-    │           │   ├── default.xml
-    │           │   └── helloworld_index_index.xml
-    │           └── templates/
-    │               ├── landingspage.phtml
-    │               └── newproducts.phtml
-    └── SEO/
-        ├── registration.php
-        ├── etc/
-        │   └── module.xml
-        └── Setup/
-            ├── InstallData.php
-            └── UpgradeData.php
-
+app/code/Packt/
+├── HelloWorld/                                # Module chính HelloWorld
+│   ├── registration.php                       # Đăng ký module với Magento
+#   ├── Block/                                 # Chứa các lớp Block hiển thị dữ liệu ra giao diện
+│   │   ├── Adminhtml/
+│   │   │   ├── Subscription.php               # Block backend cho Subscription grid
+│   │   │   └── Subscription/Grid.php          # Khai báo Grid hiển thị danh sách subscription
+<!-- │   │   ├── Html/Calendar.php                  # Block hiển thị lịch (calendar) ở frontend -->
+│   │   ├── Landingspage.php                   # Block trang đích tùy chỉnh
+│   │   └── Newproducts.php                    # Block hiển thị sản phẩm mới
+#   ├── Console/
+│   │   └──Command/HelloWorldCommand.php       # Lệnh CLI tùy chỉnh: `bin/magento helloworld:hello`
+#   ├── Controller/                            # Chứa các controller xử lý request (frontend & backend)
+│   │   ├── Adminhtml/                         # Controller cho giao diện admin
+│   │   │   ├── Component/Index.php            # Action hiển thị trang component
+│   │   │   ├── Index/Index.php                # Action mặc định trong admin
+│   │   │   └── Subscription/Index.php         # Action hiển thị subscription grid
+│   │   └── Index/                             # Controller cho giao diện người dùng (frontend)
+│   │       ├── Index.php                      # Trang hello world index
+│   │       ├── Redirect.php                   # Action chuyển hướng
+│   │       ├── Subscription.php               # Action xử lý subscription ở frontend
+│   │       ├── Collection.php                 # Action demo collection (dữ liệu)
+│   │       └── Event.php                      # Action test event
+#   ├── Observer/
+│   │   └── RegisterVisitObserver.php          # Observer lắng nghe và xử lý sự kiện
+│   │   └── CheckCartQtyObserver.php           # Xử lý sự kiện khi thêm sản phẩm vào cart
+|
+#   ├── Plugin/
+│   │   └──Catalog/ProductAround.php           # Plugin can thiệp xử lý vào Catalog\Product
+#   ├── Setup/                                 # Xử lý cài đặt/upgrade module
+│   │   ├── InstallData.php                    # Chèn dữ liệu ban đầu khi cài đặt
+│   │   ├── InstallSchema.php                  # Tạo bảng dữ liệu ban đầu
+│   │   ├── UpgradeData.php                    # Nâng cấp dữ liệu khi tăng version
+│   │   └── UpgradeSchema.php                  # Nâng cấp cấu trúc DB
+#   ├── etc/                                   # Khai báo cấu hình cho module
+│   │   ├── adminhtml/
+│   │   │   ├── menu.xml                       # Thêm menu vào backend
+│   │   │   ├── routes.xml                     # Khai báo route cho adminhtml
+│   │   │   └── system.xml                     # Khai báo cấu hình module trong admin
+│   │   ├── frontend/
+│   │   │   ├── routes.xml                     # Khai báo route cho frontend
+│   │   │   └── page_type.xml                  # Khai báo loại page frontend (tuỳ chọn)
+│   │   ├── acl.xml                            # Phân quyền truy cập chức năng admin
+│   │   ├── config.xml                         # Khai báo config mặc định
+│   │   ├── cron_groups.xml                    # Cấu hình và sử lý khi id cron trong crontab khác (default, index, consumers)
+│   │   ├── crontab.xml                        # Khai báo cronjob chạy theo thời gian
+│   │   ├── di.xml                             # Khai báo dependency injection (DI)
+│   │   ├── events.xml                         # Khai báo các event được lắng nghe
+│   │   ├── module.xml                         # Khai báo tên module và version
+#   ├── i18n/                                  # Thư mục chứa file dịch ngôn ngữ
+│   │   ├── en_US.csv                          # File dịch tiếng Anh
+│   │   ├── fr_FR.csv                          # File dịch tiếng Pháp
+│   │   └── ja_JP.csv                          # File dịch tiếng Nhật
+#   ├── Model/                                 # Chứa các class nghiệp vụ và model
+│   │   ├── Subscription.php                   # Model chính của bảng subscription
+│   │   ├── Cron.php                           # Class xử lý logic liên quan tới cron
+│   │   ├── Config/Source/Relation.php         # Source model cho dropdown trong cấu hình
+│   │   └── ResourceModel/                     # Làm việc với DB
+│   │       ├── Subscription.php               # ResourceModel chính của subscription
+│   │       └── Subscription/Collection.php    # Collection của subscription
+#   ├── view/
+│   │   ├── adminhtml/
+│   │   │   ├── layout/
+│   │   │   │   ├── helloworld_component_index.xml     # Layout cho trang component admin
+│   │   │   │   └── helloworld_subscription_index.xml  # Layout cho trang subscription admin
+│   │   │   ├── templates/
+│   │   │       └── component/
+│   │   │           ├── index.phtml           # Template giao diện trang component admin
+│   │   │           └── toolbar/buttons.phtml # Template giao diện toolbar button
+│   │   └── frontend/
+│   │       ├── layout/
+│   │       │   ├── default.xml               # Layout mặc định frontend
+│   │       │   └── helloworld_index_index.xml# Layout cho route helloworld/index/index
+│   │       ├── templates/
+│   │       │   ├── landingspage.phtml        # Template cho trang landing
+│   │       │   └── newproducts.phtml         # Template cho block sản phẩm mới
+│   │       └── web/
+│   │           ├── css/styles.css            # CSS tùy chỉnh frontend
+│   │           └── js/custom.js              # JavaScript tùy chỉnh frontend
+└── SEO/                                       # Module SEO phụ trợ
+    ├── registration.php                       # Đăng ký module SEO
+    ├── etc/module.xml                         # Khai báo tên & version module SEO
+    └── Setup/
+        ├── InstallData.php                    # Cài đặt dữ liệu ban đầu
+        └── UpgradeData.php                    # Nâng cấp dữ liệu khi tăng version
 
 
 # Cấu Trúc và Chức Năng Các Tệp Module
