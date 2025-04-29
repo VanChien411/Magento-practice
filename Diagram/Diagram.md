@@ -38,6 +38,7 @@ app/code/Packt/
 │   │   │   ├── routes.xml                     # Khai báo route cho adminhtml
 │   │   │   └── system.xml                     # Khai báo cấu hình module trong admin
 │   │   ├── frontend/
+│   │   │   ├── events.xml                     # Khai báo các event được lắng nghe cho các event có sẵn
 │   │   │   ├── routes.xml                     # Khai báo route cho frontend
 │   │   │   └── page_type.xml                  # Khai báo loại page frontend (tuỳ chọn)
 │   │   ├── acl.xml                            # Phân quyền truy cập chức năng admin

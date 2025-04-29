@@ -32,4 +32,28 @@
 
 17. Muốn override 1 js file của core thì làm sao?
 
-100. Phần biệt productFactory , colection và colectionFactory, entity product nữa.
+18. Cách tạo controller và cho biết cách truy cập vào controller ngoài browser (URL), Cách đặt tên layout cho controller này. VD: có frontName là a, và action e nằm trong thư mục b/c/d thì truy cập vào action e bằng URL nào ?
+
+19. Cho biết layout có những thẻ (tag) nào. Chúng có gì khác nhau. 1 block có thể chứa nhiều block con không ? Và ở file templates gọi block con bằng cách nào ?
+
+20. Có mấy cách tạo bảng ?
+
+21. Trong store configuration cho biết tác dụng của source_model, frontend_model và backend_model ?
+
+22. Làm sao để xét giá trị mặc định cho 1 field trong store configuration?
+
+23. Một collection eav sử dụng addFieldToFilter đc không. Và 1 collection không phải là eav thì dùng addAttributeToFilter được không ?
+
+24. Tác dụng lớn nhất của mô hình EAV trong magento ?
+
+25. Để xem lỗi 500 internal server error thì xem ở đâu ?
+
+26. Khi nhấn vào 1 button trên browser làm sao biết được dữ liệu gửi đến controller nào (trường hợp trong mã html ko có action="a/b/c" đâu nhé) ?
+
+27. Trong etc folder. file di.xml có thể được đặt ở đâu. và ở đâu thì ưu tiên hơn ?
+
+28. Trong file di.xml có những thẻ nào và những thẻ đó có thể làm gì ?
+
+29. Trong view folder có mấy scope ?
+
+30. Event có return không ?
