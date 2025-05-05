@@ -57,3 +57,8 @@
 29. Trong view folder có mấy scope ?
 
 30. Event có return không ?
+
+---------------
+31. eav & flat table khác nhau như thế nào
+ vậy sử dụng flat table nên sử dụng ở đâu?
+ 
