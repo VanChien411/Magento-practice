@@ -1,3 +1,4 @@
+```
 app/code/Packt/
 ├── HelloWorld/                                # Module chính HelloWorld
 │   ├── registration.php                       # Đăng ký module với Magento
@@ -84,7 +85,7 @@ app/code/Packt/
     └── Setup/
         ├── InstallData.php                    # Cài đặt dữ liệu ban đầu
         └── UpgradeData.php                    # Nâng cấp dữ liệu khi tăng version
-
+```
 
 # Cấu Trúc và Chức Năng Các Tệp Module
 
