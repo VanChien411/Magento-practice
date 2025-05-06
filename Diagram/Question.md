@@ -58,7 +58,8 @@
 
 30. Event có return không ?
 
+31. Các loại override?
 ---------------
-31. eav & flat table khác nhau như thế nào
+32. eav & flat table khác nhau như thế nào
  vậy sử dụng flat table nên sử dụng ở đâu?
  
